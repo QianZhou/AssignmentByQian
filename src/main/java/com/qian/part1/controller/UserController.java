@@ -23,7 +23,12 @@ public class UserController {
 	}
 	
 	@RequestMapping("/{name}/age")
-	public String getUser(@PathVariable String name) {
-		return "Name:"+name+"   Age:"+usrService.getUser(name).getAge();
+	public String getUserAge(@PathVariable String name) {
+		return "Name:"+name+" Age:"+usrService.getUser(name).getAge();
+	}
+	
+	@RequestMapping("/{name}/birthday")
+	public String getUserBirthday(@PathVariable String name) {
+		return "Name:"+name+" Birthday:"+usrService.getUser(name).getBirthday();
 	}
 }

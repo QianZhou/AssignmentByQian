@@ -11,7 +11,7 @@ import com.qian.part1.model.User;
 @Service
 public class UserService {
 	
-	private List<User> users=Arrays.asList(new User("qian",new Date("02/01/1980"),19),new User("H",new Date("02/01/1990"),19));
+	private List<User> users=Arrays.asList(new User("Luke",new Date("01/01/1980"),38),new User("Betty",new Date("06/21/1990"),28));
 	
 	public List<User> getAllUsers(){
 		return users;
