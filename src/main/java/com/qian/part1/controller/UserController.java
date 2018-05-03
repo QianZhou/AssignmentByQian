@@ -38,4 +38,9 @@ public class UserController {
 	public void addUser(@RequestBody User user) {
 		usrService.addUser(user);
 	}
+	
+	@RequestMapping(method=RequestMethod.PUT,value="/user/{name}")
+	public void updateUser(@RequestBody User user,@PathVariable String name) {
+		usrService.updateUser(user,name);
+	}
 }

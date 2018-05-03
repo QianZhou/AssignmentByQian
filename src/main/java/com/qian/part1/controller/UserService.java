@@ -22,8 +22,22 @@ public class UserService {
 		return users.stream().filter(t->t.getName().equals(name)).findFirst().get();
 	}
 
+
+	
 	public void addUser(User user) {
 		// TODO Auto-generated method stub
 		users.add(user);
+	}
+
+	public void updateUser(User user, String name) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<users.size();i++) {
+			User u=users.get(i);
+			if(u.getName().equals(name)) {
+				user.setName(u.getName());
+				users.set(i, user);
+				return;
+			}
+		}
 	}
 }
