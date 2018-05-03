@@ -5,7 +5,7 @@ import java.util.Date;
 public class User {
 	
 	    private String name;  
-	    private Date birthday;  
+	    private String birthday;  
 	    private int age;  
 	  
 
@@ -13,7 +13,7 @@ public class User {
 	        super();  
 	    }  
 	  
-	    public User(String name, Date birthday, int age) {  
+	    public User(String name, String birthday, int age) {  
 	        super();  
 	        this.name = name;  
 	        this.birthday = birthday;  
@@ -30,11 +30,11 @@ public class User {
 	        this.name = name;  
 	    }  
 	  
-	    public Date getBirthday() {  
+	    public String getBirthday() {  
 	        return birthday;  
 	    }  
 	  
-	    public void setBirthday(Date birthday) {  
+	    public void setBirthday(String birthday) {  
 	        this.birthday = birthday;  
 	    }  
 	  
