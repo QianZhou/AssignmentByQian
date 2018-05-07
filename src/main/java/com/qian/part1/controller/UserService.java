@@ -4,40 +4,36 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qian.part1.model.User;
+import com.qian.part1.respository.UserRepository;
 
 @Service
 public class UserService {
+	@Autowired
+	private UserRepository userRepository;
 	
-	private List<User> users=new ArrayList<>(Arrays.asList(new User("Luke","01/01/1980",38),new User("Betty","06/21/1990",28)));
 	
 	public List<User> getAllUsers(){
+		List<User> users=new ArrayList<>();
+		userRepository.findAll().forEach(users::add);
 		return users;
 	}
 	
 	public User getUser(String name) {
-		return users.stream().filter(t->t.getName().equals(name)).findFirst().get();
+		return userRepository.findById(name).get();
 	}
 
-
-	
 	public void addUser(User user) {
 		// TODO Auto-generated method stub
-		users.add(user);
+		userRepository.save(user);
 	}
 
 	public void updateUser(User user, String name) {
-		// TODO Auto-generated method stub
-		for(int i=0;i<users.size();i++) {
-			User u=users.get(i);
-			if(u.getName().equals(name)) {
-				user.setName(u.getName());
-				users.set(i, user);
-				return;
-			}
-		}
+		userRepository.save(user);
 	}
 }
