@@ -16,20 +16,17 @@ public class UserController {
 	@Autowired
 	private UserService usrService;
 	
-	
-	@RequestMapping("/users")
+	@RequestMapping(method=RequestMethod.GET,value="/users")
 	public List<User> getAllUsers() {
-		return usrService.getAllUsers();
+		return usrService.getAllUsers();	
 	}
 	
-
-	
-	@RequestMapping("/{name}/age")
+	@RequestMapping(method=RequestMethod.GET,value="/{name}/age")
 	public String getUserAge(@PathVariable String name) {
 		return "Name:"+name+" Age:"+usrService.getUser(name).getAge();
 	}
 	
-	@RequestMapping("/{name}/birthday")
+	@RequestMapping(method=RequestMethod.GET,value="/{name}/birthday")
 	public String getUserBirthday(@PathVariable String name) {
 		return "Name:"+name+" Birthday:"+usrService.getUser(name).getBirthday();
 	}

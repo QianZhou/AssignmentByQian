@@ -23,11 +23,16 @@ public class UserService {
 	}
 
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
-		userRepository.save(user);
+		if(user==null) {
+			throw new IllegalArgumentException("Error: The user cannot be null.");
+		}else if(userRepository.existsById(user.getName())) {
+			throw new IllegalArgumentException("Error: The user has already existed in the system.");
+		}else
+			userRepository.save(user);
 	}
 
 	public void updateUser(User user, String name) {
+		
 		userRepository.save(user);
 	}
 }
